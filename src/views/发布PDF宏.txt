@@ -1,0 +1,38 @@
+Sub 发布PDF()
+
+    On Error GoTo ERR_HANDLE
+
+    Dim cdrPath As String
+    Dim pdfPath As String
+
+    If Documents.Count = 0 Then
+        MsgBox "当前没有打开文件！"
+        Exit Sub
+    End If
+
+    If ActiveDocument.FileName = "" Then
+        MsgBox "请先保存CDR文件！"
+        Exit Sub
+    End If
+
+    ActiveDocument.Save
+
+    cdrPath = ActiveDocument.FullFileName
+
+    pdfPath = Left(cdrPath, Len(cdrPath) - 4) & ".pdf"
+
+    If Dir(pdfPath) <> "" Then
+        Kill pdfPath
+    End If
+
+    ActiveDocument.PublishToPDF pdfPath
+
+    Application.StatusBar = "PDF发布完成：" & pdfPath
+
+    Exit Sub
+
+ERR_HANDLE:
+
+    MsgBox "PDF发布失败！"
+
+End Sub
