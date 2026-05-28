@@ -39,14 +39,14 @@ timer = setInterval(() => {
 let yesterdayReg = ref(0)
 let allReg = ref(0)
 
-// getUserInfo(yesterday,yesterday).then((res: any) => {
-//     console.log('userInfo', res, res.totalCount);
-//     yesterdayReg.value = res.totalCount;
-// })
-// getUserInfo().then((res: any) => {
-//     console.log('userInfoAll', res, res.totalCount);
-//     allReg.value = res.totalCount;
-// })
+getUserInfo(yesterday, yesterday).then((res: any) => {
+  console.log('userInfo', res, res.totalCount)
+  yesterdayReg.value = res.totalCount
+})
+getUserInfo().then((res: any) => {
+  console.log('userInfoAll', res, res.totalCount)
+  allReg.value = res.totalCount
+})
 
 onMounted(() => {
   getCustomerPay(getMonthStart(), today).then((res: any) => {
