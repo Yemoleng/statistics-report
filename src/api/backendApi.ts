@@ -2,6 +2,7 @@ import axios from 'axios'
 import { setCookies, getCookies } from '../utils/cache.js'
 
 const service = axios.create({
+  // baseURL: 'http://epc.ep365.com', // 从环境变量读取基础地址
   baseURL: '/api', // 从环境变量读取基础地址
   timeout: 15000, // 请求超时时间
   // withCredentials: true,
