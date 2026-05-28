@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { getSaleOrderList, getUserInfo, getCustomerPay } from '@/api/backendApi.ts'
+import { getUserInfo, getCustomerPay } from '@/api/backendApi.ts'
 import {
   dayPeriod,
   monthPeriod,
