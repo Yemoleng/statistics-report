@@ -40,11 +40,11 @@ onMounted(async () => {
   <header>
     <div class="wrapper">
       <nav>
-        <!-- <RouterLink to="/"></RouterLink> -->
+        <RouterLink to="/"></RouterLink>
       </nav>
     </div>
   </header>
-  <!-- <RouterView /> -->
+  <RouterView />
 </template>
 
 <style scoped></style>
