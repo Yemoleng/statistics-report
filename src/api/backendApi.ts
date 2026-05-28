@@ -3,7 +3,7 @@ import { setCookies, getCookies } from '../utils/cache.js'
 
 const service = axios.create({
   // baseURL: 'http://epc.ep365.com', // 从环境变量读取基础地址
-  baseURL: '/api', // 从环境变量读取基础地址
+  baseURL: 'https://statistics-report.yemoleng2.workers.dev/', // 从环境变量读取基础地址
   timeout: 15000, // 请求超时时间
   // withCredentials: true,
   // headers: {
@@ -18,7 +18,7 @@ const fromData = {
 }
 
 export async function backendLogin(data = fromData) {
-  return service.post('user/login', data, { withCredentials: true })
+  return service.post('/api/user/login', data, { withCredentials: true })
 }
 
 // 获取报价单列表接口
@@ -56,19 +56,19 @@ export async function getQuoteList(
   } else {
     data = options
   }
-  const res = await service.post('/WebUser/UserQuoteList', data, { withCredentials: true })
+  const res = await service.post('/api/WebUser/UserQuoteList', data, { withCredentials: true })
 
   return res.data
 }
 
 // 获取销售订单列表接口
 export async function getSaleOrderList(data: any = {}) {
-  return await service.post('/Order/SaleOrderListExt', data, { withCredentials: true })
+  return await service.post('/api/Order/SaleOrderListExt', data, { withCredentials: true })
 }
 
 // 获取组织架构初始化数据接口
 export function getOrganizationInitData() {
-  return service.get('api/v1/org_structure/get_organization_init_data')
+  return service.get('/api/api/v1/org_structure/get_organization_init_data')
 }
 
 // 获取用户信息
@@ -110,7 +110,7 @@ export function getUserInfo(
   } else {
     data = options
   }
-  return service.post('WebUser/AuditedUserListNews', data, { withCredentials: true })
+  return service.post('/api/WebUser/AuditedUserListNews', data, { withCredentials: true })
 }
 
 // 获取客户回款列表接口
@@ -130,7 +130,7 @@ export function getCustomerPay(beginTime = '', endTime = '', options: any = {}) 
     AreaCode: '',
     websiteid: '',
   }
-  return service.post('/Customer/CustomerReceiptHappening', data, { withCredentials: true })
+  return service.post('/api/Customer/CustomerReceiptHappening', data, { withCredentials: true })
 }
 
 // 请求拦截器
