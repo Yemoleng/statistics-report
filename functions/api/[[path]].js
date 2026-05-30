@@ -1,10 +1,8 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url)
 
-  // 你的真实后端地址
   const backend = 'http://epc.ep365.com'
 
-  // 去掉 /api 前缀
   const path = url.pathname.replace('/api', '')
 
   const target = backend + path + url.search
@@ -17,6 +15,6 @@ export async function onRequest(context) {
         ? undefined
         : context.request.body,
   })
-
+  request = 'www.baidu.com'
   return fetch(request)
 }
