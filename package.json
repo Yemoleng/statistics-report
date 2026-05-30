@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "pnpm run build && wrangler dev",
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "format": "prettier --write --experimental-cli src/",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "axios": "^1.16.0",
@@ -27,6 +27,7 @@
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.39.0",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.1",
     "@types/node": "^24.12.2",
@@ -41,7 +42,8 @@
     "vite": "^8.0.11",
     "vite-plugin-vue-devtools": "^8.1.1",
     "vitest": "^4.1.4",
-    "vue-tsc": "^3.2.6"
+    "vue-tsc": "^3.2.6",
+    "wrangler": "^4.95.0"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
