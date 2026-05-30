@@ -13,6 +13,8 @@ let yesterday = getYesterday()
 let lastDays = dayPeriod(-1)
 
 onMounted(async () => {
+  console.log(`API Base URL: ${import.meta.env.VITE_API_BASE_URL}`)
+
   //获取组织架构初始化数据
   try {
     if (yesterday == lastDays) {
